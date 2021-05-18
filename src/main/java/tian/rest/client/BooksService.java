@@ -18,7 +18,7 @@ public interface BooksService {
     @GET
     @Path("/volumes")
     @Produces("application/json")
-    CompletionStage<Book> getEbooksAsUni(
+    CompletionStage<Book> getEbooksAsync(
             @NotNull
             @QueryParam("q")
             String q,
@@ -34,6 +34,29 @@ public interface BooksService {
 
             @QueryParam("orderby")
             String sorting
+
+    );
+
+
+    @GET
+    @Path("/volumes")
+    @Produces("application/json")
+    Uni<Book> getEbooksUni(
+            @NotNull
+            @QueryParam("q")
+                    String q,
+
+            @QueryParam("filter")
+                    String filtering,
+
+            @QueryParam("printType")
+                    String printType,
+
+            @QueryParam("projection")
+                    String projection,
+
+            @QueryParam("orderby")
+                    String sorting
 
     );
 
