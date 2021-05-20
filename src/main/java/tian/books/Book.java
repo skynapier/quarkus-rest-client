@@ -1,4 +1,4 @@
-package tian.rest.client;
+package tian.books;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.json.bind.annotation.JsonbDateFormat;
@@ -27,7 +27,7 @@ public class Book {
         public List<String> authors;
         public String publisher;
         @JsonbDateFormat("yyyy-MM-dd")
-        public String publishedDate;
+        public Date publishedDate;
         public String description;
         public List<IndustryIdentifier> industryIdentifiers;
     }

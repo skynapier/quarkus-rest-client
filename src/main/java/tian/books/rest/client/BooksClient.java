@@ -1,47 +1,29 @@
-package tian.rest.client;
+package tian.books.rest.client;
 
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import java.util.concurrent.CompletionStage;
-import io.smallrye.mutiny.Uni;
 import org.jboss.resteasy.annotations.jaxrs.QueryParam;
+import tian.books.Book;
 
 @Path("/v1")
 @RegisterRestClient(configKey="google-book-api")
-public interface BooksService {
+public interface BooksClient {
 
     @GET
     @Path("/volumes")
     @Produces("application/json")
-    CompletionStage<Book> getEbooksAsync(
-            @NotNull
-            @QueryParam("q")
-            String q,
-
-            @QueryParam("filter")
-            String filtering,
-
-            @QueryParam("printType")
-            String printType,
-
-            @QueryParam("projection")
-            String projection,
-
-            @QueryParam("orderby")
-            String sorting
-
-    );
-
-
-    @GET
-    @Path("/volumes")
-    @Produces("application/json")
-    Uni<Book> getEbooksUni(
+    @APIResponse(responseCode = "200")
+    @APIResponse(responseCode = "400", description = "Unable to process input")
+    @APIResponse(responseCode = "401", description = "Unauthorized")
+    @APIResponse(responseCode = "500", description = "Server Error")
+    Book getGoogleEbooks(
             @NotNull
             @QueryParam("q")
                     String q,
@@ -49,12 +31,15 @@ public interface BooksService {
             @QueryParam("filter")
                     String filtering,
 
+            @DefaultValue("all")
             @QueryParam("printType")
                     String printType,
 
+            @DefaultValue("full")
             @QueryParam("projection")
                     String projection,
 
+            @DefaultValue("relevance")
             @QueryParam("orderby")
                     String sorting
 
