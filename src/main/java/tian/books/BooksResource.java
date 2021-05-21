@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import tian.books.rest.client.BooksClient;
-import tian.books.rest.client.BooksClientImpl;
 
 @Path("/books")
 public class BooksResource {
@@ -47,9 +46,9 @@ public class BooksResource {
             String sorting
             ){
 
-        booksClient.getGoogleEbooks(query, filtering,printType, projection,sorting);
-//        return Response.ok( booksService.getEbooksAsUni(query, filtering, printType, projection,sorting)).build();
-        return  Response.ok().build();
+//        booksClient.getGoogleEbooks(query, filtering,printType, projection,sorting);
+        return Response.ok( booksClient.getGoogleEbooks(query, filtering, printType, projection,sorting)).build();
+//        return  Response.ok().build();
     }
 
 

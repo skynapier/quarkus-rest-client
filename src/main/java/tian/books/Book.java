@@ -26,6 +26,7 @@ public class Book {
         public String title;
         public List<String> authors;
         public String publisher;
+
         @JsonbDateFormat("yyyy-MM-dd")
         public Date publishedDate;
         public String description;
