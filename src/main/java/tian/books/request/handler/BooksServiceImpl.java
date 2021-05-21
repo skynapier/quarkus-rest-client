@@ -2,7 +2,6 @@ package tian.books.request.handler;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
-import tian.books.BooksResource;
 import tian.books.rest.client.BooksClient;
 
 import javax.inject.Inject;

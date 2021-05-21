@@ -18,7 +18,7 @@ public class BooksTest {
     @Test
     public void testGetBookEndpoint() {
         given()
-                .when().get("/books/volume/f280CwAAQBAJ")
+                .when().get("/google-books/volume/f280CwAAQBAJ")
                 .then()
                 .statusCode(200)
 
