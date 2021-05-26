@@ -55,3 +55,5 @@ https://www.googleapis.com/books/v1/volumes?q=f280CwAAQBAJ&filter=ebooks
 
 f280CwAAQBAJ
 
+
+curl -X GET "http://localhost:8080/google-books/volume/f280CwAAQBAJ?orderby=relevance&printType=all&projection=full" -H  "accept: */*"
