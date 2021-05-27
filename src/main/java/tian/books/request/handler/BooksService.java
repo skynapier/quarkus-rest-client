@@ -7,12 +7,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-//import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-//import io.quarkus.oidc.client.filter.OidcClientFilter;
 
-
-//@RegisterRestClient
-//@OidcClientFilter
 @Path("/google-books")
 public interface BooksService {
 
@@ -42,4 +37,6 @@ public interface BooksService {
             @QueryParam("orderby")
                     String sorting
     );
+
+
 }

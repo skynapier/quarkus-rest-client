@@ -15,21 +15,16 @@ public class BooksServiceImpl implements BooksService{
     @RestClient
     BooksClient booksClient;
 
-//    @Inject
-//    SecurityIdentity securityIdentity;
+    @Inject
+    SecurityIdentity securityIdentity;
 
     private static final Logger LOGGER = Logger.getLogger(BooksService.class);
 
     @Override
-//    @RolesAllowed("user")
+    @RolesAllowed("books")
     public Response getBooks(String query, String filtering, String printType, String projection, String sorting) {
-//        LOGGER.info("access with role " + securityIdentity.getRoles());
-//        if(securityIdentity.hasRole("user") ){
+        LOGGER.info("access with role " + securityIdentity.getRoles());
 
-//            return Response.ok( booksClient.getGoogleEbooks(query, filtering, printType, projection,sorting)).build();
-//
-//        }
-//        return Response.status(Response.Status.UNAUTHORIZED).build();
         return Response.ok( booksClient.getGoogleEbooks(query, filtering, printType, projection,sorting)).build();
 
     }
