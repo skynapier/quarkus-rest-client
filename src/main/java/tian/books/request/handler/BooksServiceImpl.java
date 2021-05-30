@@ -18,6 +18,7 @@ public class BooksServiceImpl implements BooksService{
     @Inject
     SecurityIdentity securityIdentity;
 
+
     private static final Logger LOGGER = Logger.getLogger(BooksService.class);
 
     @Override

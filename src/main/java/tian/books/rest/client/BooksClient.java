@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import io.quarkus.oidc.client.filter.OidcClientFilter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -15,6 +16,7 @@ import org.jboss.resteasy.annotations.jaxrs.QueryParam;
 import tian.books.Book;
 
 @Path("/v1")
+@OidcClientFilter
 @RegisterRestClient(configKey="google-book-api")
 public interface BooksClient {
 

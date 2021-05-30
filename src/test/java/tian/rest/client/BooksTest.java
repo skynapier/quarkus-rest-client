@@ -14,7 +14,6 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTestResource(WiremockBooks.class)
 public class BooksTest {
 
-
     @Test
     public void testGetBookEndpoint() {
         given()

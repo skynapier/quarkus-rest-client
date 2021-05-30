@@ -50,10 +50,20 @@ If you want to learn more about building native executables, please consult http
 - RESTEasy JAX-RS ([guide](https://quarkus.io/guides/rest-json)): REST endpoint framework implementing JAX-RS and more
 
 
+![](readmeSrc/Oath Support illustration.png)
+
+
+## keycloak configuration 
+
+http://localhost:8180/auth/realms/quarkus/.well-known/openid-configuration
+
+
+## Example request
 
 https://www.googleapis.com/books/v1/volumes?q=f280CwAAQBAJ&filter=ebooks
+curl -X GET "http://localhost:8080/google-books/volume/f280CwAAQBAJ?orderby=relevance&printType=all&projection=full" -H  "accept: */*"
 
+## Example request param
 f280CwAAQBAJ
 
 
-curl -X GET "http://localhost:8080/google-books/volume/f280CwAAQBAJ?orderby=relevance&printType=all&projection=full" -H  "accept: */*"
